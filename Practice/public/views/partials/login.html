@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<style>
+	body        { padding-top:80px; }
+</style>
+
+<div class="container">
+	<div class="col-sm-6 col-sm-offset-3">
+		<h1>Login</h1>
+  
+		<div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+		<form class="form" ng-submit="login()">
+		<div class="form-group">
+			<label>Username</label>
+			<input type="text" class="form-control" name="username" ng-model="loginForm.username" required>
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" class="form-control" name="password" ng-model="loginForm.password" required>
+		</div>
+		<div>
+			<button type="submit" class="btn btn-default" ng-disabled="disabled">Login</button>
+		</div>
+		</form>
+		
+		<div class="center-block text-left">
+			<hr>
+			Need an account? <a ui-sref="register">Signup</a></p> Or go to <a href="/">home</a>.</p>
+			<a href="/oauth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+			<a href="/oauth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
+			<a href="/oauth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+		</div>
+	</div>
+</div>

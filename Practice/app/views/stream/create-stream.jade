@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+
+	h1 This is to create streams
+	
+	title= title
+	h2.text-center #{title}
+	h1.text-center Hello streams
+	div.row.container.col-md-6.col-md-offset-3
+		form(enctype='multipart/form-data' method="POST", action="/stream/create", id="main")
+			
+			
+			div.form-group
+				//div#errorMsg.alert.alert-danger(data-dismiss="alert" )= errorMessage
+				
+				input(type="hidden", name="_method", value="put")
+				label.sr-only(for="title") Title      
+				input.form-control(type="text", name="title", id="title", placeholder="Enter stream title",
+					 autofocus required)
+				&nbsp
+				label.sr-only(for="description") Description     
+				textarea.form-control(rows="4", cols="50" name="description", id="description", placeholder="Enter stream description",
+					 autofocus)
+				&nbsp	
+				label.sr-only(for="section1") Section 1      
+				textarea.form-control(rows="4", cols="50", name="section1", id="section1", placeholder="Enter first section details",
+					 autofocus)
+				&nbsp					
+				label.sr-only(for="section2") Section 2      
+				textarea.form-control(rows="4", cols="50", name="section2", id="section2", placeholder="Enter second section details",
+					 autofocus)
+				&nbsp
+				label.sr-only(for="redirect") Redirect link     
+				input.form-control(type="text", name="redirect", id="redirect", placeholder="Enter text for redirecting",
+					 autofocus)
+				&nbsp	
+				label.sr-only(for="myImage") Upload image      
+				input.form-control(type="file", name="myImage", id="myImage")
+				&nbsp
+				
+			div.form-group
+				button.btn.btn-lg.btn-primary.btn-block(type="submit", id="btnSave") Save
+				a(href="/stream/details") Get list
+				&nbsp
+				&nbsp
+				a(href="/substream/create") Enter Substring
+				&nbsp
+				&nbsp
+				

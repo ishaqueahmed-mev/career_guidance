@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+	h1.text-center= title
+	br
+	br
+	div.row.col-lg-10.col-md-offset-1
+		table.table.table-hover.table-bordered
+			thead
+				tr
+					th	Id
+					th	Title
+					th  Description
+			tbody
+				each doc, i in docs
+					tr
+						td= doc.id
+						td= doc.title
+						td= doc.description
+						

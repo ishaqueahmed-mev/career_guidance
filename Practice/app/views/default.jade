@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	h1 Images will be inserted here
+	
+	form(enctype='multipart/form-data' action='/' method='POST' )
+		input(type='text' name='name' placeholder='Please enter name')
+		br
+		br
+		input(type='text' name='description' placeholder='Please enter description')
+		br
+		br
+		input(type='file' name='myImage')
+		br
+		br
+		input(type="submit" name="submit" value="submit")
+		
+		a(href="/list") Get list

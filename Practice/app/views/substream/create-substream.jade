@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+	h1 Substream page
+	title= title
+	
+	div.row.container.col-md-6.col-md-offset-3
+		form(method='POST', action='/substream', id='main')
+			div.form-group
+				label.sr-only(for="title") Sub-stream title      
+				input.form-control(type="text", name="title", id="title", placeholder="Enter sub-stream title"
+					autofocus)
+					
+			div.form-group
+				label.sr-only(for="description") Sub-stream Description      
+				textarea.form-control(name="description", id="description", placeholder="Enter sub-stream description"
+					autofocus)
+					
+			div.form-group
+				label.sr.only(for="ddlStream") Select stream
+				select.form-control(name="streamList", id="ddlStream")
+					option(value="") Select stream
+						each doc, i in docs
+							- var select = null; if(doc.title == doc.streamList) select='selected';
+							option(value=doc._id, selected=select)= doc.title
+							
+			div.form-group
+				button.btn.btn-lg.btn-primary.btn-block(type="submit", id="btnSave") Save

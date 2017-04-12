@@ -1,0 +1,87 @@
+<!-- <h1>{{page}}</h1> -->
+	<div class = "row">
+		<div class = "container">
+			<div class = "col-md-12" height="100px" width="80px" style="margin:1cm 3cm 0cm 2cm">
+				<ul>
+					<li style="text-align:justify; font-size:20px; ">
+		<!-- <h4>{{users._id}}</h4> -->
+		<!-- <h4>{{users.originalname}}</h4> -->
+						<img ng-src = "{{users.path}}" width="200px" height="200px" align= "middle"/>
+						
+						<h4><br><b>{{users.title}}</b></h4><br>
+						<p>&nbsp&nbsp&nbsp&nbsp&nbsp{{users.description}}</p>
+						<p>&nbsp&nbsp&nbsp&nbsp&nbsp{{users.section1}}</p>
+						<p>&nbsp&nbsp&nbsp&nbsp&nbsp{{users.section2}}</p>
+	
+		<!-- The below one gives for multiple views in an single state -->
+		
+		<!-- <a id="a" ui-sref=".list" class="btn btn-primary" onclick="myFunction()"><p>{{users.redirect}}</p></a><br><br> -->
+		<!-- <a ui-sref=".paragraph" class="btn btn-danger">Paragraph</a> -->
+		
+		
+		<!-- The below one gives nested views on a single state -->
+		
+						<a class="btn btn-primary" onclick="myFunction()"><p>{{users.redirect}}</p></a><br><br>
+						<div class="row">
+							<div class="container">
+								<div id="a" ui-view="columnTwo" style="display:none"></div>
+							</div>
+						</div>
+		
+					</li>
+				</ul>
+				<hr>
+				<div>
+					<h1 align="center"> <b> Comments </b> </h1>
+					<div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+					<form id="main" class="form" ng-submit="comment()">
+						<div class="form-group">
+							<input type="hidden" name="stream" ng-model="commentForm.stream">
+							<textarea class="form-control" name="comment" ng-model="commentForm.comment"
+								placeholder="Write a comment" required/>
+						</div>
+						<div align="right">
+							<button type="submit" class="btn btn-danger" ng-disabled="disabled"> Submit </button>
+						</div><br>
+						<div class="col-md-8">
+						<ul ng-repeat="comment in comments">
+							<li style="color:blue">
+							<b>
+								<p>{{comment.postedby.facebook.displayName}} </p><p>
+								{{comment.postedby.google.name}}
+								{{comment.postedby.twitter.displayName}}
+								{{comment.postedby.username}}</b>
+							</li>
+							<p>Posted on <b>{{comment.updated | date:'medium'}}</b></p>
+							<li>
+								{{comment.comment}}
+							</li>
+							<li>
+								
+							</li>
+							<br>
+						</ul>
+						</div>
+				</div>
+					</form>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+	
+	<!-- ui-view, if using multiple view, i.e. for .list view -->
+	
+	<!-- <div ui-view ></div> -->
+	
+	<script>
+		function myFunction() {
+			var x = document.getElementById('a');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+			} else {
+				x.style.display = 'none';
+			}
+		}
+	</script>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Career Guidance</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="/css/bootstrap-social.css">
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/skel-panels.min.js"></script>
+		<script src="/js/init.js"></script>
+		<!-- Project Scripts from below-->
+		<script type="text/javascript" src="/js/angular.js"></script>
+		<script type="text/javascript" src="/js/angular-ui-router.min.js"></script>
+		<script type="text/javascript" src="/js/angular-resource.min.js"></script>
+		<script type="text/javascript" src="/js/angular-sanitize.min.js"></script>
+		<script type="text/javascript" src="/js/angular/main.js"></script>
+		<script type="text/javascript" src="/js/angular/services.js"></script>
+		<script type="text/javascript" src="/js/angular/controllers.js"></script>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+		<noscript>
+			<hr size="4">
+			<h1>This Page Requires JavaScript 1.1</h1>
+			This page requires a browser that supports JavaScript 1.1.<p>
+			Your browser either does not support JavaScript, or it has JavaScript
+			support disabled. If you want to correctly view this page, please
+			upgrade your browser or enable JavaScript support.
+			<hr size="4">
+		</noscript>
+		<!-- <link rel="stylesheet" href="/css/home/skel-noscript.css" /> -->
+		<!-- <link rel="stylesheet" href="/css/home/style.css" /> -->
+		<!-- <link rel="stylesheet" href="/css/home/style-desktop.css" /> -->
+	</head>
+	
+	<body class="homepage" ng-app="myApp" >
+		<div ng-controller="myController">
+			<nav class="navbar navbar-inverse"
+				style="margin-bottom:-1px; padding-top:5px; font-size:20px; height:60px; background: black">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>                        
+						</button>
+						<a class="navbar-brand" href="#" style="font-size:25px">CAREER GUIDANCE</a>
+					</div>
+					<div class="collapse navbar-collapse" id="myNavbar">
+						<div ng-show="!loggedIn" ng-if="!$state.includes('login') && !$state.includes('register')">
+							<ul class="nav navbar-nav" >
+								<!-- <li class="active"><a href="#">Home</a></li> -->
+								<!-- <li class="dropdown"> -->
+									<!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a> -->
+								 <!-- <ul class="dropdown-menu"> -->
+									<!-- <li><a href="#">Page 1-1</a></li> -->
+									<!-- <li><a href="#">Page 1-2</a></li> -->
+									<!-- <li><a href="#">Page 1-3</a></li> -->
+								<!-- </ul> -->
+								<!-- </li> -->
+								<!-- <li><a href="#">Page 2</a></li> -->
+								<!-- <li><a href="#">Page 3</a></li> -->
+							</ul>
+							<ul class="nav navbar-nav navbar-right">
+								<li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+								<li><a ui-sref="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+							</ul>
+						</div>
+						<ul class="nav navbar-nav navbar-right" ng-show="loggedIn">
+							<li><a ui-sref="logout" ng-controller="logoutController" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	
+	<!-- <div ng-controller="myController"> -->
+		 <!-- <div id="header" class="container" ng-model="myVar" ng-init="myVar = false">  -->
+			 <!-- <div id="logo"><h1><a href="#">Career Guidance</a></h1></div> -->
+			<!-- <nav id="nav" >  -->
+				 <!-- <ul ng-show="!loggedIn" ng-if="!$state.includes('login') && !$state.includes('register')">  -->
+					 <!-- <li class="current_page_item"><a ui-sref="login">Log In </a></li>&nbsp&nbsp&nbsp&nbsp -->
+					 <!-- <li class="current_page_item"><a ui-sref="register">Register </a></li>  -->
+				 <!-- </ul>  -->
+				 <!-- <ul ng-show="loggedIn" > -->
+					<!-- <li class="current_page_item"> -->
+						<!-- <a ng-controller="logoutController" ng-click="logout()" class="btn btn-default">Logout</a> -->
+					<!-- </li>		 -->
+				 <!-- </ul> -->
+			<!-- </nav>  -->
+		<!-- </div>	 -->
+	<!-- </div> -->
+	
+	<div ui-view>
+	</div>
+	</body>
+</html>

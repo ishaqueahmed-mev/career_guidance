@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+	h1.text-center= title
+	br
+	br
+	img(src="/public/images/alps.jpg" width="100px" height="100px")
+	div.row.col-lg-10.col-md-offset-1
+		table.table.table-hover.table-bordered
+			thead
+				tr
+					th	Id
+					th	Name
+					th  Images
+			tbody
+				each doc, i in docs
+					tr
+						td= doc.id
+						td= doc.originalname
+						td
+							img(src="/#{doc.path}" width="100px" height="100px")
+						td
+							a(href="/stream/#{doc.id}") Edit

@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+	div.row.col-lg-10.col-md-offset-1
+		p #{docs.id}
+		p #{docs.originalname}
+		img(src="/#{docs.path}" width="50px" height="50px")
+		&nbsp
+		&nbsp
+		a(href="/stream-list/#{docs.id}") Get related substreams
+	
+		h1 For comments
+	div.row.container.col-md-6.col-md-offset-3
+		form(method="POST", action="/comment/create", id="main")
+			div.form-group
+				input(type="hidden", name="stream", value="#{docs.id}")
+				label.sr-only(for="comment") Leave a comment      
+				textarea.form-control(name="comment", id="comment", placeholder="Leave comments",
+					 autofocus required)
+			
+			div.form-group
+				button.btn.btn-lg.btn-primary.btn-block(type="submit", id="btnSave") Submit
+				
+	
+	div.row.container.col-md-8.col-md-offset-3
+		each dat, i in data
+			ul
+				li #{dat.comment}
+				
+	div.row.col-lg-10.col-md-offset-1
+		table.table.table-hover.table-bordered
+			thead
+				tr
+					th	Id
+					th	Comment
+			tbody
+				each dat, i in data
+					tr
+						td= dat.id
+						td= dat.comment
